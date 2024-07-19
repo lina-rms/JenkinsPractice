@@ -1,5 +1,5 @@
 pipeline {
-    agent Docker
+    agent any
 
     stages {
         stage('Checkout') {
@@ -7,6 +7,7 @@ pipeline {
                 checkout scm
             }
         }
+
         stage('Install Dependencies') {
             steps {
                 script {
@@ -14,6 +15,7 @@ pipeline {
                 }
             }
         }
+
         stage('Build and Test') {
             steps {
                 script {
