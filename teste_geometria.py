@@ -1,4 +1,5 @@
 import unittest
+import math
 from geometria import area_circulo, area_retangulo
 
 class TesteGeometria(unittest.CasoTeste):
