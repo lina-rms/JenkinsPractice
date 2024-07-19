@@ -1,19 +1,16 @@
 pipeline {
-    agent {
-        docker {
-            image 'python:3.9-slim'
-        }
-    }
-
+    agent any
     stages {
-        stage('Install Dependencies') {
+        stage('Build') {
             steps {
-                sh 'pip install --no-cache-dir -r requirements.txt'
+                echo 'Building...'
+                sh 'pip install -r requirements.txt'
             }
         }
         stage('Test') {
             steps {
-                sh 'python -m unittest discover -s src'
+                echo 'Testing...'
+                sh 'python -m unittest discover'
             }
         }
     }
