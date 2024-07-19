@@ -1,13 +1,13 @@
 FROM python:3.9-slim
 
-WORKDIR /app
+WORKDIR /JenkinsPractice
 
-COPY requisitos.txt /app/
+COPY requisitos.txt /JenkinsPractice/
 
 RUN pip install --no-cache-dir -r requisitos.txt
 
-COPY src /app/src
+COPY src /JenkinsPractice/src
 
-ENV PYTHONPATH=/app/src
+ENV PYTHONPATH=/JenkinsPractice/src
 
 CMD ["python", "-m", "unittest", "discover", "-s", "src"]
