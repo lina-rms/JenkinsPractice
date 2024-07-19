@@ -1,15 +1,12 @@
-pipeline {
-    agent any
-    stages {
-        stage('Build') {
-            steps {
-                echo 'Building...'
-                sh 'pip install -r requirements.txt'
-            }
+pipeline{
+    agent{
+        dockerfile{
+            filename 'Dockerfile'
         }
-        stage('Test') {
-            steps {
-                echo 'Testing...'
+    }
+    stages{
+        stage('Test'){
+            steps{
                 sh 'python -m unittest discover'
             }
         }
