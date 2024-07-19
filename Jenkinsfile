@@ -8,19 +8,24 @@ pipeline {
             }
         }
 
+        stage('Setup Python') {
+            steps {
+                sh '''
+                sudo apt-get update
+                sudo apt-get install -y python3 python3-pip
+                '''
+            }
+        }
+
         stage('Install Dependencies') {
             steps {
-                script {
-                    sh 'pip install -r requisitos.txt'
-                }
+                sh 'pip3 install -r requisitos.txt'
             }
         }
 
         stage('Build and Test') {
             steps {
-                script {
-                    sh 'python -m unittest discover'
-                }
+                sh 'python3 -m unittest discover'
             }
         }
     }
