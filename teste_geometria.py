@@ -2,8 +2,7 @@ import unittest
 import math
 from geometria import area_circulo, area_retangulo
 
-## adicionando erro ao cod para reproduzir cenário 2 (erro de build)
-class TesteGeometria(unittest.TestCasa):
+class TesteGeometria(unittest.TestCase):
     def teste_area_circulo(self):
         self.assertAlmostEqual(area_circulo(1), math.pi, places=2)
         self.assertAlmostEqual(area_circulo(0), 0, places=2)
